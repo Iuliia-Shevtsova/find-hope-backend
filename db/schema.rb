@@ -10,31 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_15_041037) do
-
+ActiveRecord::Schema.define(version: 20_210_115_041_037) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'categories', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "categories_organizations", id: false, force: :cascade do |t|
-    t.bigint "category_id", null: false
-    t.bigint "organization_id", null: false
+  create_table 'categories_organizations', id: false, force: :cascade do |t|
+    t.bigint 'category_id', null: false
+    t.bigint 'organization_id', null: false
   end
 
-  create_table "organizations", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.integer "zipCode"
-    t.string "website"
-    t.string "facebook"
-    t.string "twitter"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'organizations', force: :cascade do |t|
+    t.string 'name'
+    t.string 'address'
+    t.integer 'zipCode'
+    t.string 'website'
+    t.string 'facebook'
+    t.string 'twitter'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
-
 end
