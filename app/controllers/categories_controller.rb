@@ -41,7 +41,17 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
+  # def set_organization
+  #   @organization = Organization.find(params[:organization_id])
+  # end
 
+  # def set_organization_category
+  #   @category = @organization.categories.find_by!(id: params[:id]) if @organization
+  # end
+
+
+
+  
 
   # before_action :set_organization
   # before_action :set_organization_category, only: [:show, :update, :destroy]
