@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :organizations do
     resources :categories
   end
+
+  # resources :reviews, only [:create, :destroy]
 end

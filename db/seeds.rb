@@ -143,3 +143,20 @@ organizations = Organization.create([
     ]
   }
 ])
+
+reviews = Review.create([
+  {
+    title: 'review 1',
+    description: 'good review 1',
+    score: 5,
+    date: '01.01.2021',
+    organization: organizations.first
+  },
+  {
+    title: 'review 2',
+    description: 'good review 2',
+    score: 3,
+    date: '02.02.2021',
+    organization: organizations.first
+  },
+])

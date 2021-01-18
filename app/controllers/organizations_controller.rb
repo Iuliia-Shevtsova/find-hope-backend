@@ -44,8 +44,8 @@ class OrganizationsController < ApplicationController
 #     @organization = Organization.find(params[:id])
 #   end
 
-    before_action :set_category, except: [:index, :show]
-    before_action :set_category_organization, only: [:show, :update, :destroy]
+  before_action :set_category, except: [:index, :show]
+  before_action :set_category_organization, only: [:show, :update, :destroy]
 
   # GET /categories/:category_id/organizations  else  /organizations
   def index
@@ -78,12 +78,14 @@ class OrganizationsController < ApplicationController
 
   # PUT /categories/:category_id/organizations/:id
   def update
+    # set_organization
     @organization.update(organization_params)
     head :no_content
   end
 
   # DELETE /categories/:category_id/organizations/:id
   def destroy
+    # set_organization
     @organization.destroy
     head :no_content
   end
