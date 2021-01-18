@@ -67,7 +67,7 @@ class OrganizationsController < ApplicationController
     else
         set_organization
         json_response(@organization)
-    end
+    end 
   end
 
   # POST /categories/:category_id/organizations

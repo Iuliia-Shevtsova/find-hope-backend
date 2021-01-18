@@ -1,10 +1,16 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: %i[show update destroy]
+  before_action :set_category, only: %i[update destroy]
 
   # GET /categories
   def index
-    @categories = Category.all
-    json_response(@categories)
+
+    if (params[:organization_id])
+      set_organization
+      json_response(@organization.categories)
+    else
+      @categories = Category.all
+      json_response(@categories)
+    end
   end
  
   # POST /categories
@@ -12,10 +18,17 @@ class CategoriesController < ApplicationController
     @category = Category.create!(category_params)
     json_response(@category, :created)
   end
-
-  # GET /categories/:id
+ 
+  # GET /organizations/:organization_id/categories/:id  else  /categories/:id
   def show
-    json_response(@category)
+    if (params[:organization_id])
+      set_organization
+      set_organization_category
+      json_response(@category)
+    else
+      set_category
+      json_response(@category)
+    end 
   end
 
   # PUT /categories/:id
@@ -41,13 +54,13 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
-  # def set_organization
-  #   @organization = Organization.find(params[:organization_id])
-  # end
+  def set_organization
+    @organization = Organization.find(params[:organization_id])
+  end
 
-  # def set_organization_category
-  #   @category = @organization.categories.find_by!(id: params[:id]) if @organization
-  # end
+  def set_organization_category
+    @category = @organization.categories.find_by!(id: params[:id]) if @organization
+  end
 
 
 
