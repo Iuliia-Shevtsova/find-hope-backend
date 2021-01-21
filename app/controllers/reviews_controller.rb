@@ -1,6 +1,9 @@
 class ReviewsController < ApplicationController
-    before_action :set_organization, except: [:index, :show]
-    before_action :set_organization_review, only: [:show, :update, :destroy]
+
+    wrap_parameters false;
+    # skip_before_action :verify_authenticity_token
+    before_action :set_organization, except: [:index, :show, :destroy]
+    before_action :set_organization_review, only: [:show, :destroy]
 
     # GET /organizations/:organization_id/reviews  else  /reviews
     def index
@@ -33,14 +36,14 @@ class ReviewsController < ApplicationController
 
     # PUT /organizations/:organization_id/reviews/:id
     def update
-        # set_review
+        set_review
         @review.update(review_params)
         head :no_content
     end
 
     # DELETE /organizations/:organization_id/reviews/:id
     def destroy
-        # set_review
+        set_review
         @review.destroy
         head :no_content
     end
