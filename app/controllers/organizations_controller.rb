@@ -1,49 +1,4 @@
 class OrganizationsController < ApplicationController
-#     # before_action :set_organization, only: %i[show update destroy]
-
-#   # GET /organizations
-#   def index
-#     @organizations = Organization.all
-#     json_response(@organizations)
-#   end
- 
-#   # POST /organizations
-#   def create
-#     @organization = Organization.create!(organization_params)
-#     json_response(@organization, :created)
-#   end
-
-#   # GET /organizations/:id
-#   def show
-#     # @category = Category.find(params[:category_id])
-#     @organization = Organization.find(params[:id])
-#     # @organization = @category.organizations.find(params[:id])
-#     json_response(@organization)
-#   end
-
-#   # PUT /organizations/:id
-#   def update
-#     @organization.update(organization_params)
-#     head :no_content
-#   end
-
-#   # DELETE /organizations/:id
-#   def destroy
-#     @organization.destroy
-#     head :no_content
-#   end
-
-#   private
-
-#   def organization_params
-#     # whitelist params
-#     params.require(:organization).permit(:name, :address, :zipCode, :website, :facebook, :twitter)
-#   end
-
-#   def set_organization
-#     @organization = Organization.find(params[:id])
-#   end
-
   before_action :set_category, except: [:index, :show]
   before_action :set_category_organization, only: [:show, :update, :destroy]
 
