@@ -21,4 +21,5 @@ Rails.application.routes.draw do
     resources :organizations
   end
 
+  root to: proc { [200, {}, ['']] }
 end
